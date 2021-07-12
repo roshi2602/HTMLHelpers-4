@@ -1,0 +1,30 @@
+﻿@model HTMLHelpers.Models.Company
+
+@{
+    ViewBag.title = "my radio button";
+}
+
+<h2>radio button in html helper</h2>
+<!--
+The BeginForm() method is an extension method of the HtmlHelper class that writes "<form>" tag
+-->
+
+@using (Html.BeginForm())
+{
+    //using foreach loop
+    <!-- taking Department list property name from model-Department.cs
+        -->
+    foreach (var i in Model.Departments)
+
+    {
+        //using RadioBox
+        @Html.RadioButtonFor(x => x.Cname, i.did)
+        @i.dname
+        <input type="submit" value="submit" />
+    }
+}
+
+<!--
+ RadioButtonFor() HTML Helper method is a lambda expression that specifies the model property to be bound with the RadioButton element
+     So, it generates three <input type=”Radio”> element with did and dname set to property name – Cname.
+-->
